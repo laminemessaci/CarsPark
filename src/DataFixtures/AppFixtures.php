@@ -4,6 +4,7 @@ namespace App\DataFixtures;
 
 use App\Entity\Marque;
 use App\Entity\Modele;
+use App\Entity\Voiture;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 
@@ -54,6 +55,24 @@ class AppFixtures extends Fixture
             ->setPrixMoyen(17000)
             ->setMarque($marque2);
         $manager -> persist($modele5);
+
+        $modeles = [$modele1, $modele2, $modele3, $modele4, $modele5];
+
+        // use the factory to create a Faker\Generator instance
+        $faker = \Faker\Factory::create('fr_FR');
+        foreach ($modeles as $m){
+            $rand = rand(3,5);
+            for($i=1; $i <= $rand; $i++){
+                $voiture = new Voiture();
+                //XX1234XX
+                $voiture -> setImmatriculation($faker -> regexify("[A-Z]{2}[0-9]{3,4}[A-Z]{2}"))
+                    ->setNbPortes($faker->randomElement($array = array(3,5)))
+                    ->setAnnee($faker->numberBetween($min = 1990, $max = 2020))
+                    ->setModele($m);
+                $manager ->persist($voiture);
+            }
+
+        }
 
 
         $manager->flush();
