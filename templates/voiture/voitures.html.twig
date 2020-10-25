@@ -22,9 +22,9 @@
                                     <p class="card-text">
                                     <div>Marque:{{ voiture.modele.marque.libelle }}  </div>
                                     <div>Prix: {{ voiture.modele.prixMoyen }}</div>
-                                    <div>Modele : {{ voiture.modele.libelle}}</div>
-                                    <div>Nombre de portes : {{ voiture.nbPortes}}</div>
-                                    <div>Année: {{ voiture.annee}}</div>
+                                    <div>Modele : {{ voiture.modele.libelle }}</div>
+                                    <div>Nombre de portes : {{ voiture.nbPortes }}</div>
+                                    <div>Année: {{ voiture.annee }}</div>
                                     </p>
                                 </div>
 
@@ -34,7 +34,15 @@
                 </div>
             {% endfor %}
         </div>
+        {# display navigation #}
+        <div class="container ">
+            <div class="navigation ">
+                {{ knp_pagination_render(voitures) }}
+            </div>
+        </div>
     </div>
+
+
 
 
 
