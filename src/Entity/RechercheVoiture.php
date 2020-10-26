@@ -1,40 +1,30 @@
 <?php
 namespace App\Entity;
+use Symfony\Component\Validator\Constraints as Assert;
 
 class RechercheVoiture{
+    /**
+     * @Assert\LessThanOrEqual(propertyPath="maxAnnee", message="doit être plus petit que l'année Max")
+     */
     private $minAnnee;
+
+    /**
+     * @Assert\GreaterThanOrEqual(propertyPath="minAnnee", message="doit être plus grand que l'année Min")
+     */
     private $maxAnnee;
 
-    /**
-     * @return int
-     */
-    public function getMinAnnee(): int
-    {
+    public function getMinAnnee(){
         return $this->minAnnee;
     }
-
-    /**
-     * @param int  $minAnnee
-     */
-    public function setMinAnnee(int $minAnnee): void
-    {
-        $this->minAnnee = $minAnnee;
-    }
-
-    /**
-     * @return int
-     */
-    public function getMaxAnnee(): int
-    {
+    public function getMaxAnnee(){
         return $this->maxAnnee;
     }
-
-    /**
-     * @param int $maxAnnee
-     */
-    public function setMaxAnnee(int $maxAnnee): void
-    {
-        $this->maxAnnee = $maxAnnee;
+    public function setMinAnnee(int $annee){
+        $this->minAnnee = $annee;
+        return $this;
     }
-
+    public function setMaxAnnee(int $annee){
+        $this->maxAnnee = $annee;
+        return $this;
+    }
 }

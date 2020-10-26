@@ -6,35 +6,87 @@
 
 {% block monTitre %} Voitures  {% endblock %}
 {% block body %}
+
     <div class="container">
+        {{ form_start (form) }}
+        <div class="row no-getters align-items-center text-center">
+            <div class="col m-4">
+                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-calendar-week" fill="currentColor"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                          d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
+                    <path d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm-3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm-5 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1z"/>
+                    {{ form_row(form.minAnnee) }}
+                </svg>
+
+
+            </div>
+            <div class="col m-4">
+                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-calendar-week" fill="currentColor"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                          d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
+                    <path d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm-3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm-5 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1z"/>
+                    {{ form_row(form.maxAnnee) }}
+                </svg>
+
+            </div>
+            <div class="col-2">
+                <input type="submit" value="Rechercher" class="btn btn-primary">
+            </div>
+        </div>
+
+        {{ form_end (form) }}
+        <div class=" container-fluid">
+
+            <a href="" class="col-2 btn btn-success  ">
+                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cloud-plus-fill" fill="currentColor"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                          d="M8 2a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 6.095 0 7.555 0 9.318 0 11.366 1.708 13 3.781 13h8.906C14.502 13 16 11.57 16 9.773c0-1.636-1.242-2.969-2.834-3.194C12.923 3.999 10.69 2 8 2zm.5 4a.5.5 0 0 0-1 0v1.5H6a.5.5 0 0 0 0 1h1.5V10a.5.5 0 0 0 1 0V8.5H10a.5.5 0 0 0 0-1H8.5V6z"/>
+                </svg>
+                Ajouter </a>
+        </div>
+
+
         <div class="row no-gutters">
             {% for voiture in voitures %}
                 <div class="col-12 col-lg-6 p-1 ">
                     <div class="card mb-3">
                         <div class="row no-getters align-items-center p-2">
+
                             <div class="col-12 col-md-4 ">
                                 <img src="{{ asset('images/'~voiture.modele.image) }}"
                                      class="thumbnail card-img img-responsive">
                             </div>
+
                             <div>
                                 <div class="card-body">
                                     <h5 class="card-title">{{ voiture.immatriculation }}</h5>
                                     <p class="card-text">
                                     <div>Marque:{{ voiture.modele.marque.libelle }}  </div>
-                                    <div>Prix: {{ voiture.modele.prixMoyen }}</div>
+                                    <div>Prix:<strong> {{ voiture.modele.prixMoyen }} </strong> €</div>
                                     <div>Modele : {{ voiture.modele.libelle }}</div>
                                     <div>Nombre de portes : {{ voiture.nbPortes }}</div>
                                     <div>Année: {{ voiture.annee }}</div>
                                     </p>
                                 </div>
 
+                                {% if admin %}
+                                    <div class="row no-getters ">
+                                        <a href="{{ path('modifVoiture',{'id': voiture.id })}}" class="col btn btn-warning btn-sm m-2">Modifier</a>
+                                        <a href="" class="col btn btn-danger btn-sm m-2">Supprimer</a>
+                                    </div>
+                                {% endif %}
+
                             </div>
+
                         </div>
                     </div>
                 </div>
             {% endfor %}
         </div>
-        {# display navigation #}
+        {# display navigation paginations #}
         <div class="container ">
             <div class="navigation ">
                 {{ knp_pagination_render(voitures) }}

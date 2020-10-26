@@ -1,0 +1,197 @@
+html {
+    font-family: sans-serif;
+    line-height: 1.15;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+}
+
+element.style {
+    background: linear-gradient(rgba(47, 23, 15, 0.65), rgba(47, 23, 15, 0.65)), url('bg.jpg');
+}
+
+.clearfix:after {
+    display: block;
+    clear: both;
+    content: "";
+}
+
+body {
+    font-family: Lora, sans-serif;
+    background: linear-gradient(rgba(47,23,15,.65),rgba(47,23,15,.65));
+    background-attachment: fixed;
+    background-position: 50%;
+    background-size: cover;
+}
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: left;
+    background-color: #fff;
+
+    background: linear-gradient(rgba(47, 23, 15, .65), rgba(47, 23, 15, 0.65));
+}
+
+
+.page-section {
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+}
+
+@media (min-width: 992px) {
+    .intro .intro-img {
+        width: 75%;
+        float: right;
+    }
+}
+
+p {
+    line-height: 1.75;
+}
+
+.container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+
+.page-section {
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+}
+
+article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
+    display: block;
+}
+
+
+.clearfix:after {
+    display: block;
+    clear: both;
+    content: "";
+}
+.bg-faded {
+    background-color: hsla(0,0%,100%,.85);
+}
+
+
+.ml-auto, .mx-auto {
+    margin-left: auto!important;
+}
+
+.mr-auto, .mx-auto {
+    margin-right: auto!important;
+}
+
+.text-center {
+    text-align: center!important;
+}
+
+.btn-primary:not(:disabled):not(.disabled).active:focus, .btn-primary:not(:disabled):not(.disabled):active:focus, .show > .btn-primary.dropdown-toggle:focus {
+    box-shadow: 0 0 0 .2rem rgba(200,148,79,.5);
+}
+
+.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show > .btn-primary.dropdown-toggle {
+    color: #212529;
+    background-color: #df902a;
+    border-color: #dc8a21;
+}
+
+.btn:not(:disabled):not(.disabled) {
+    cursor: pointer;
+}
+
+.btn-primary:active, .btn-primary:focus, .btn-primary:hover {
+    background-color: #df902a;
+    border-color: #df902a;
+    color: #fff;
+}
+
+.btn-primary.focus, .btn-primary:focus {
+    box-shadow: 0 0 0 .2rem rgba(200,148,79,.5);
+}
+
+.btn-primary.focus, .btn-primary:focus, .btn-primary:hover {
+    color: #212529;
+    background-color: #e19635;
+    border-color: #df902a;
+}
+
+.btn.focus, .btn:focus {
+    outline: 0;
+    box-shadow: 0 0 0 .2rem rgba(230,167,86,.25);
+}
+
+.btn:hover {
+    color: #212529;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #d1831f;
+    text-decoration: underline;
+}
+
+.btn-xl {
+    font-weight: 700;
+    font-size: .8rem;
+    padding: 1.5rem 2rem;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #e6a756;
+    border-color: #e6a756;
+}
+
+.btn {
+    box-shadow: 0 3px 3px 0 rgba(33,37,41,.1);
+}
+
+.ml-auto, .mx-auto {
+    margin-left: auto!important;
+}
+
+.mr-auto, .mx-auto {
+    margin-right: auto!important;
+}
+
+.d-inline-block {
+    display: inline-block!important;
+}
+
+.btn-primary {
+    color: #212529;
+}
+
+@media (prefers-reduced-motion:reduce) {
+    .btn {
+        transition: none;
+    }
+}
+
+
+[role=button] {
+    cursor: pointer;
+}
+
+a {
+    color: #e6a756;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+.text-center {
+    text-align: center!important;
+}
+
+
+
+
