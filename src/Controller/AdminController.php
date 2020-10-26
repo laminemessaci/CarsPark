@@ -7,6 +7,7 @@ use App\Entity\Voiture;
 use App\Form\RechercheVoitureType;
 use App\Form\VoitureType;
 use App\Repository\VoitureRepository;
+use Doctrine\Persistence\ObjectManager;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -38,11 +39,22 @@ class AdminController extends AbstractController
     }
 
     /**
+     * @Route("/admin/creation", name="creationVoiture")
      * @Route("/admin/{id}", name="modifVoiture")
      */
-    public function modification(Voiture $voiture, Request $request){
+    public function modification(Voiture $voiture = null, Request $request){
 
+        if( !$voiture) $voiture = new Voiture();
+        $manager  = $this->getDoctrine()->getManager();
     $form = $this -> createForm(VoitureType::class, $voiture);
+
+        $form ->handleRequest($request);
+        if ( $form ->isSubmitted() && $form->isValid()){
+            $manager ->persist($voiture);
+            $manager->flush();
+            return  $this->redirectToRoute("admin");
+
+        }
         return $this->render('admin/modification.html.twig', [
             "voiture" => $voiture,
             "form" => $form->createView(),
