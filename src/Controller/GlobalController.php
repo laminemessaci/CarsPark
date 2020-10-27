@@ -33,12 +33,13 @@ class GlobalController extends AbstractController
 
         $manager = $this->getDoctrine()->getManager();
         $utilisateur = new Utilisateur();
+        $utilisateur->setRoles('ROLE_USER');
         $form = $this->createForm(InscriptionType::class, $utilisateur);
 
         //recuperation du formulaire
-        if (!$utilisateur->getRoles()) {
-            $utilisateur->setRoles('USER_ROLE');
-        }
+        //if ($utilisateur->getRoles() == null) {
+        //    $utilisateur->setRoles('ROLE_USER');
+       // }
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
