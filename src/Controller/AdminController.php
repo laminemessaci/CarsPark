@@ -7,7 +7,6 @@ use App\Entity\Voiture;
 use App\Form\RechercheVoitureType;
 use App\Form\VoitureType;
 use App\Repository\VoitureRepository;
-use Doctrine\Persistence\ObjectManager;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -40,7 +39,7 @@ class AdminController extends AbstractController
 
     /**
      * @Route("/admin/creation", name="creationVoiture")
-     * @Route("/admin/{id}", name="modifVoiture")
+     * @Route("/admin/{id}", name="modifVoiture", methods="GET|POST")
      */
     public function modification(Voiture $voiture = null, Request $request){
 
@@ -51,6 +50,7 @@ class AdminController extends AbstractController
         $form ->handleRequest($request);
         if ( $form ->isSubmitted() && $form->isValid()){
             $manager ->persist($voiture);
+            $this -> addFlash('success', "L'action a été effectuée avec succé !");
             $manager->flush();
             return  $this->redirectToRoute("admin");
 
@@ -58,8 +58,22 @@ class AdminController extends AbstractController
         return $this->render('admin/modification.html.twig', [
             "voiture" => $voiture,
             "form" => $form->createView(),
-
         ]);
+    }
+
+    /**
+     * @Route("/admin/{id}", name="supVoiture", methods= "SUP")
+     */
+    public function suppression(Voiture $voiture, Request $request){
+
+        $manager = $this->getDoctrine()->getManager();
+        if ($this->isCsrfTokenValid("SUP".$voiture->getId(), $request->get("_token"))){
+            $manager->remove($voiture);
+            $manager->flush();
+            $this->addFlash('success', "La voiture a bien été supprimée !");
+            return $this->redirectToRoute("admin");
+        }
+
 
     }
 }

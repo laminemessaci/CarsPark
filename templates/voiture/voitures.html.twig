@@ -6,8 +6,16 @@
 
 {% block monTitre %} Voitures  {% endblock %}
 {% block body %}
+    {% for message in app.flashes('success') %}
+        <div class=" container-fluid alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Alert !</strong> {{ message }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    {% endfor %}
 
-    <div class="container">
+    <div class="container-fluid" >
         {{ form_start (form) }}
         <div class="row no-getters align-items-center text-center">
             <div class="col m-4">
@@ -18,7 +26,6 @@
                     <path d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm-3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm-5 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1z"/>
                     {{ form_row(form.minAnnee) }}
                 </svg>
-
 
             </div>
             <div class="col m-4">
@@ -74,8 +81,14 @@
 
                                 {% if admin %}
                                     <div class="row no-getters ">
-                                        <a href="{{ path('modifVoiture',{'id': voiture.id })}}" class="col btn btn-warning btn-sm m-2">Modifier</a>
-                                        <a href="" class="col btn btn-danger btn-sm m-2">Supprimer</a>
+                                        <a href="{{ path('modifVoiture',{'id': voiture.id }) }}"
+                                           class="col btn btn-warning w-1/2">Modifier</a>
+                                        <form method="post" class="col" action="{{ path('supVoiture', {'id': voiture.id}) }}" onsubmit="return confirm('Voulez-vous supprimer?')">
+                                            <input type="hidden" name="_method" value="SUP">
+                                            <input type="hidden" name="_token" value="{{ csrf_token('SUP'~voiture.id) }}">
+                                            <input type="submit" class="btn btn-danger " value="Supprimer">
+                                        </form>
+                                        <!-- <a href="" class="col btn btn-danger btn-sm m-2">Supprimer</a> -->
                                     </div>
                                 {% endif %}
 
@@ -87,15 +100,14 @@
             {% endfor %}
         </div>
         {# display navigation paginations #}
-        <div class="container ">
+        <div class=" container-fluid ">
             <div class="navigation ">
                 {{ knp_pagination_render(voitures) }}
             </div>
         </div>
+
+
     </div>
-
-
-
 
 
 {% endblock %}

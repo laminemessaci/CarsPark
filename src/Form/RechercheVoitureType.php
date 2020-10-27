@@ -15,12 +15,14 @@ class RechercheVoitureType extends AbstractType
         $builder
             ->add('minAnnee', IntegerType::class, [
                 "required" =>false,
-                "label" => "Année de: "
+               // "label" => "Année de: ",
+                "attr" => array('placeholder' => 'Année Min')
             ])
 
             ->add('maxAnnee', IntegerType::class, [
                 "required" =>false,
-                "label" => "Année à: "
+                //"label" => "Année à: ",
+               "attr" => array('placeholder' => 'Année Max')
             ])
         ;
     }

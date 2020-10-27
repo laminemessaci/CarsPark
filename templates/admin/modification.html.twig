@@ -1,15 +1,19 @@
 {% extends 'base.html.twig' %}
 
 {% block title %} Modification {{ voiture.immatriculation }}{% endblock %}
-{% block monTitre %} Modification de la voiture {{ voiture.immatriculation }} {% endblock %}
+  {% block monTitre %} Modification de la voiture {{ voiture.immatriculation }} {% endblock %}
 
 {% block body %}
-    <div class="container p-4 mb-4">
+    <div class="container p-4 mb-4 card" id="modification">
+
+        <h5 class="card-header info-color white-text text-center py-4">
+            <strong> Modification </strong>
+        </h5>
         {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <div class="container row ">
-            <a href="{{ path('admin') }}" class=" col btn btn-primary btn-sm m-2"> Retour </a>
-            <input type="submit" value="Valider" class=" col btn btn-success btn-sm m-2">
+      <div class="container">  {{ form_widget(form) }}</div>
+        <div class="container row p-4 ">
+            <a href="{{ path('admin') }}" class=" col-2 btn btn-primary btn-sm m-2"> Retour </a>
+            <input type="submit" value="Valider" class=" col-2 btn btn-success btn-sm m-2">
         </div>
         {{ form_end(form) }}
     </div>
