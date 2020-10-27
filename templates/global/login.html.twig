@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Login {% endblock %}
+
+{% block monTitre %} Login {% endblock %}
+{% block body %}
+
+
+    <div class="container border border-double card p-4">
+
+    {% if error %}
+        <div class=" rounded alert alert-danger">
+            Le login ou le mot de passe ne correspond pas !!
+        </div>
+    {% endif %}
+    <form action="{{ path('login') }}" method="post">
+        <div class="form-group rounded">
+            <label>Login: </label>
+            <input type="text" required name="_username" class="form-control" value="{{ lastUserName }}">
+        </div>
+
+        <div class="form-group">
+            <label>Password: </label>
+            <input type="password" required name="_password" class="form-control">
+        </div>
+        <div class="form-group">
+            <input type="submit" class="btn btn-success" value="S'identifier">
+
+        </div>
+    </form>
+
+{% endblock %}

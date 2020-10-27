@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}Bienvenue dans votre agence!{% endblock %}</title>
@@ -16,8 +16,8 @@
 </head>
 <body>
 
-<div class="container-fluid ">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+<div class="container rounded ">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary rounded-pill">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
                 aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -29,7 +29,7 @@
             Concession Auto
         </a>
 
-        <div class="collapse navbar-collapse " id="navbarColor01">
+        <div class="collapse navbar-collapse" id="navbarColor01">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item ">
                     <a class="nav-link" href="{{ path('accueil') }}">Accueil</a>
@@ -45,7 +45,15 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
+                    <a class="nav-link" href="{{ path('login') }}"> Login</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#1">About</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{path('logout')}}">Logout</a>
                 </li>
 
             </ul>
@@ -54,12 +62,12 @@
 </div>
 <hr>
 <hr>
-<div class="container-fluid">
-    <h1 class=" border border-dark rounded  m-2 p-2 text-center bg-warning "> {% block monTitre %}{% endblock %}</h1>
+<div class="container rounded-pill">
+    <h1 class=" border  rounded-pill  m-2 p-2 text-center bg-warning "> {% block monTitre %}{% endblock %}</h1>
 </div>
-
+<hr>
+<hr>
 {% block body %}
-
 
 {% endblock %}
 

@@ -37,6 +37,7 @@ body {
 }
 
 .container {
+  margin: 20px;
     background: gold;
 }
 .page-section {
@@ -193,7 +194,4 @@ a {
 .text-center {
     text-align: center!important;
 }
-
-
-
 

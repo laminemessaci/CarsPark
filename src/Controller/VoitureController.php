@@ -29,6 +29,7 @@ class VoitureController extends AbstractController
             6 /*limit per page*/
         );
 
+
         return $this->render('voiture/voitures.html.twig',[
             "voitures" => $voitures,
             "form" => $form ->createView(),

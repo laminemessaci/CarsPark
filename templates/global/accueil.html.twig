@@ -4,21 +4,25 @@
 
 {% block monTitre %} Bienvenue sur Mon Agence de voitures {% endblock %}
 {% block body %}
+    <div class="container rounded ">
+        <section class="page-section clearfix">
+            <div class="container rounded p-2 m-2 ">
+                <div class="intro"><img class="img-fluid intro-img  mb-lg-0 rounded img-card"
+                                        src="{{ asset('images/modele2.jpg') }}" alt="308">
 
-    <section class="page-section clearfix">
-        <div class="container-fluid ">
-            <div class="intro"><img class="img-fluid intro-img mb-3 mb-lg-0 rounded" src="{{ asset('images/308.jpg') }}">
-
-                <div class="intro-text left-0 text-centerfaded p-6 rounded bg-faded text-center">
-                    <h2 class="section-heading mb-4"><span class="section-heading-upper">NOUVELLE GAMME AUTO</span><span class="section-heading-lower">Worth Drinking</span></h2>
-                    <p class="mb-3">Voitures de toutes gammes et marques disponibles à neuf ou d'occasion !</p>
-                    <div class="mx-auto intro-button"><a class="btn btn-primary d-inline-block mx-auto btn-xl" role="button" href="#">Visitez nous !</a></div>
+                    <div class="intro-text left-0 text-centerfaded p-6 rounded bg-faded text-center">
+                        <h2 class="section-heading mb-4"><span
+                                    class="section-heading-upper">NOUVELLE GAMME AUTO</span><span
+                                    class="section-heading-lower">Worth Drinking</span></h2>
+                        <p class="mb-3">Voitures de toutes gammes et marques disponibles à neuf ou d'occasion !</p>
+                        <div class="mx-auto intro-button"><a class="btn btn-primary d-inline-block mx-auto btn-xl"
+                                                             role="button" href="#">Visitez nous !</a></div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <div class=" container-fluid card-body mb-5 p-4">
+        </section>
+    </div>
+    <div class=" container rounded card-body mb-5 p-4" id="1">
         <div class="row">
             <div class="col-sm-4">
                 <h3>Contact 2</h3>
@@ -40,8 +44,9 @@
 
 
     <footer class="footer text-faded text-center py-5">
-        <div class="container">
-            <p class="m-0 small">Copyright © Brand 2020</p>
-        </div>
+
+        <p class="m-0 small">Copyright © Brand 2020</p>
+
     </footer>
+
 {% endblock %}
